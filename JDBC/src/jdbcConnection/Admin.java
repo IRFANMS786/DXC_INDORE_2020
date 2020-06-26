@@ -1,3 +1,4 @@
+package jdbcConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.*;
@@ -8,35 +9,35 @@ public class Admin
 	InputStreamReader isr = null;
 	BufferedReader buff = null;
 
-	public void addAccountant(BufferedReader buff,Connection con) throws Exception
+	public void addAccountant(BufferedReader buff,java.sql.Connection con) throws Exception
 	{	
 		an.isr = new InputStreamReader(System.in);
 		an.buff = new BufferedReader(an.isr);
 
 		System.out.println("Enter Accountant Name : ");
-		String name=buff.readLine();
+		String ename=buff.readLine();
 
 		System.out.println("Enter Accountant Email : ");
 		String email=buff.readLine();
 
 		System.out.println("Enter Accountant PassWord : ");
-		String password=buff.readLine();
+		String psd=buff.readLine();
 
 		System.out.println("Enter Accountant ContactNo : ");
-		String contact=buff.readLine();
+		String cont=buff.readLine();
 
 		PreparedStatement stmtInsert = con.prepareStatement("insert into accountant_db values(?,?,?,?)");
 
-		stmtInsert.setString(1, name);
+		stmtInsert.setString(1, ename);
 		stmtInsert.setString(2, email);
-		stmtInsert.setString(3, password);
-		stmtInsert.setString(4, contact);
+		stmtInsert.setString(3, psd);
+		stmtInsert.setString(4, cont);
 
 		System.out.println(stmtInsert.executeUpdate() + " ");
 
 	}
 
-	public void viewAccountant(BufferedReader buff,Connection con) throws Exception
+	public void viewAccountant(BufferedReader buff,java.sql.Connection con) throws Exception
 	{
 		Statement stmt = con.createStatement();
 

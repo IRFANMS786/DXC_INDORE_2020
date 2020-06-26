@@ -1,3 +1,4 @@
+package jdbcConnection;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Connection;
@@ -49,7 +50,7 @@ public class Accountant
 		System.out.println("Enter Student ContactNo : ");
 		String contact=buff.readLine();
 
-		PreparedStatement stmtInsert = con.prepareStatement("insert into student_tb values(?,?,?,?)");
+		PreparedStatement stmtInsert = con.prepareStatement("insert into student_tb values(?,?,?,?,?,?,?,?,?,?,?)");
 
 		stmtInsert.setString(1, name);
 		stmtInsert.setString(2, email);

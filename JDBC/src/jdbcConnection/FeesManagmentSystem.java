@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-class UserClass<T> {
+class jdbc<T> {
 	T obj;
 
 	void create(T obj) { 
@@ -32,7 +32,7 @@ class UserClass<T> {
 			mObject.isr = new InputStreamReader(System.in);
 			mObject.buff = new BufferedReader(mObject.isr);
 
-			System.out.println(" ============== Welcome to Fees Managment System ==============\n\n");
+			System.out.println(" The Fees Managment System \n\n");
 			System.out.println("Enter your Choice : ");
 			System.out.println("1. AdminLogIn \n2. Accountant");
 
@@ -46,7 +46,7 @@ class UserClass<T> {
 				String passWord=mObject.buff.readLine();
 				if (uName.equals("Admin") && passWord.equals("admin123")) 
 				{
-					UserClass<Admin> obj = new UserClass<Admin>();
+					jdbc<Admin> obj = new jdbc<Admin>();
 					obj.create(new Admin());
 					mObject.mAdmin = obj.getInstance();
 					System.out.println("1. AddAccountant\n2. ViewAccountant \n3. LogOut");
@@ -70,7 +70,7 @@ class UserClass<T> {
 			}
 			else if(mChoice.equalsIgnoreCase("2"))
 			{
-				UserClass<Accountant> obj = new UserClass<Accountant>();
+				jdbc<Accountant> obj = new jdbc<Accountant>();
 				obj.create(new Accountant());
 				mObject.mAccountant = obj.getInstance();
 				System.out.println("1. Add Student\n2. View Student\n3. Edit Student\n4. LogOut");
@@ -89,7 +89,7 @@ class UserClass<T> {
 					case 4 :  System.exit(0);
 	          		  		  break;
 
-					default:  System.out.println("*** Sorry You Have Enterd a Wrong Choice ***");
+					default:  System.out.println(" You Have Enterd a Wrong Choice ");
 							  break;
 				}
 			}
